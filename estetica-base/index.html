@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Estetica Aurora · Centro estetico</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%235f6e51'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='38' fill='%23f3ecd9' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E" />
+<meta name="description" content="Estetica Aurora — centro estetico: viso, corpo, mani e piedi, epilazione e benessere. Prenota il tuo trattamento su misura." />
+<meta name="theme-color" content="#5f6e51" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500&family=Sacramento&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#f6f4ee; --panel:#ffffff; --ink:#34362f; --muted:#7d8073;
+    --sage:#8a9a7b; --sage-deep:#5f6e51; --gold:#b89a5e; --gold-soft:#cdb588;
+    --soft:#eef0e7; --line:rgba(52,54,47,.12);
+    --serif:'Cormorant Garamond',serif; --sans:'Jost',sans-serif; --script:'Sacramento',cursive;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;scroll-padding-top:76px;overflow-x:hidden;width:100%;-webkit-text-size-adjust:100%;text-size-adjust:100%;}
+  body{font-family:var(--sans);color:var(--ink);background:var(--bg);line-height:1.7;font-weight:300;-webkit-font-smoothing:antialiased;overflow-x:hidden;width:100%;max-width:100%;}
+  img,svg,iframe{max-width:100%;}
+  section,footer{overflow-x:hidden;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{width:100%;max-width:1140px;margin:0 auto;padding-left:24px;padding-right:24px;position:relative;z-index:1;}
+  .sect{padding-top:92px;padding-bottom:92px;}
+  h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.12;}
+  .eyebrow{font-family:var(--script);color:var(--gold);font-size:1.7rem;line-height:1;}
+  .kicker{font-family:var(--sans);font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;color:var(--sage-deep);font-weight:500;}
+  .sect-head{text-align:center;max-width:680px;margin:0 auto 56px;display:flex;flex-direction:column;align-items:center;gap:6px;}
+  .sect-head h2{font-size:clamp(2rem,4.5vw,2.9rem);color:var(--ink);}
+  .sect-head p{color:var(--muted);font-size:1.05rem;margin-top:8px;}
+  .leaf{width:46px;height:auto;opacity:.7;margin:4px 0;}
+
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5em;font-family:var(--sans);font-weight:500;font-size:.86rem;letter-spacing:.06em;text-transform:uppercase;padding:.92em 1.9em;border-radius:40px;cursor:pointer;border:1px solid transparent;transition:all .25s;}
+  .btn-primary{background:var(--sage-deep);color:#fff;}
+  .btn-primary:hover{background:var(--ink);}
+  .btn-out{background:transparent;border-color:var(--sage-deep);color:var(--sage-deep);}
+  .btn-out:hover{background:var(--sage-deep);color:#fff;}
+
+  /* HEADER */
+  header{position:fixed;top:0;left:0;right:0;z-index:60;transition:all .35s;}
+  header .bar{display:flex;align-items:center;justify-content:space-between;padding-top:18px;padding-bottom:18px;transition:padding .35s;}
+  header.scrolled{background:rgba(246,244,238,.95);backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--line);}
+  header.scrolled .bar{padding-top:11px;padding-bottom:11px;}
+  .brand{display:flex;flex-direction:column;line-height:1;}
+  .brand b{font-family:var(--serif);font-weight:600;font-size:1.5rem;letter-spacing:.04em;color:var(--ink);}
+  .brand small{font-family:var(--sans);font-size:.58rem;letter-spacing:.34em;text-transform:uppercase;color:var(--gold);margin-top:3px;}
+  nav.links{display:flex;align-items:center;gap:30px;}
+  nav.links a{font-family:var(--sans);font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);transition:color .2s;}
+  nav.links a:not(.btn):hover{color:var(--gold);}
+  nav.links a.btn-primary{color:#fff;}
+  nav.links .btn{padding:.7em 1.4em;}
+  .burger{display:none;background:none;border:0;width:30px;height:22px;position:relative;cursor:pointer;z-index:80;}
+  .burger span{position:absolute;left:0;width:100%;height:2px;background:var(--ink);transition:.3s;}
+  .burger span:nth-child(1){top:0;}.burger span:nth-child(2){top:10px;}.burger span:nth-child(3){top:20px;}
+
+  /* HERO */
+  .hero{position:relative;min-height:100vh;display:flex;align-items:center;text-align:center;overflow:hidden;
+    background:radial-gradient(120% 90% at 50% 0%,#fbfaf5,var(--soft) 70%,#e6ebdd);}
+  .hero .sprig{position:absolute;opacity:.5;z-index:0;}
+  .hero .sprig.tl{top:8%;left:-40px;width:230px;transform:rotate(8deg);}
+  .hero .sprig.br{bottom:4%;right:-50px;width:280px;transform:rotate(-160deg);}
+  .hero-inner{position:relative;z-index:1;padding-top:120px;padding-bottom:90px;max-width:780px;margin:0 auto;}
+  .hero .eyebrow{font-size:2.4rem;color:var(--gold);}
+  .hero h1{font-size:clamp(3rem,8vw,5.4rem);color:var(--ink);margin-top:6px;letter-spacing:.02em;}
+  .hero .vc{font-family:var(--sans);font-size:.8rem;letter-spacing:.42em;text-transform:uppercase;color:var(--sage-deep);margin-top:14px;}
+  .hero p.lead{font-size:1.18rem;color:var(--muted);max-width:520px;margin:22px auto 0;}
+  .hero-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:32px;}
+
+  /* SERVIZI */
+  .menu-list{display:flex;flex-direction:column;gap:0;max-width:820px;margin:0 auto;border-top:1px solid var(--line);}
+  .ml-row{display:grid;grid-template-columns:220px 1fr;gap:24px;padding-top:24px;padding-bottom:24px;border-bottom:1px solid var(--line);align-items:baseline;}
+  .ml-cat{font-family:var(--serif);font-size:1.5rem;color:var(--sage-deep);font-weight:600;}
+  .ml-items{color:var(--muted);font-size:1.02rem;}
+  .ml-items span{color:var(--ink);}
+  .serv-note{text-align:center;color:var(--muted);font-style:italic;font-size:.95rem;margin-top:30px;}
+
+  /* CHI SIAMO */
+  .about{background:var(--sage-deep);color:#f3f2ea;position:relative;overflow:hidden;}
+  .about .sprig{position:absolute;opacity:.16;right:-30px;bottom:-30px;width:320px;}
+  .about .wrap{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}
+  .about .eyebrow{color:var(--gold-soft);}
+  .about h2{font-size:clamp(2rem,4vw,2.7rem);color:#fff;margin:4px 0 16px;}
+  .about p{color:#dfe2d4;margin-bottom:14px;font-size:1.05rem;}
+  .about .stat{display:flex;gap:34px;margin-top:22px;}
+  .about .stat b{font-family:var(--serif);font-size:2.2rem;color:var(--gold-soft);display:block;line-height:1;}
+  .about .stat span{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:#c7ccba;}
+
+  /* PRENOTA */
+  .book .wrap{max-width:640px;}
+  .book-card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:38px 34px;box-shadow:0 30px 60px -40px rgba(52,54,47,.4);}
+  .book-card label{display:block;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--sage-deep);margin-bottom:6px;margin-top:16px;font-weight:500;}
+  .book-card label:first-child{margin-top:0;}
+  .book-card input,.book-card textarea{width:100%;font-family:var(--sans);font-size:16px;color:var(--ink);background:var(--soft);border:1px solid var(--line);border-radius:10px;padding:12px 14px;}
+  .book-card textarea{min-height:90px;resize:vertical;}
+  .book-card .btn{width:100%;margin-top:22px;}
+
+  /* CONTATTI */
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;}
+  .info-row{display:flex;gap:14px;padding-top:16px;padding-bottom:16px;border-bottom:1px solid var(--line);}
+  .info-row:first-child{padding-top:0;}
+  .info-row .ic{color:var(--gold);flex-shrink:0;width:24px;display:flex;justify-content:center;padding-top:3px;}
+  .info-row .ic svg{width:20px;height:20px;stroke:var(--gold);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;}
+  .info-row b{display:block;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--sage-deep);margin-bottom:3px;font-weight:600;}
+  .info-row span,.info-row a{font-size:1.04rem;color:var(--ink);overflow-wrap:anywhere;}
+  .info-row>div:last-child{min-width:0;flex:1;}
+  .hours{list-style:none;margin-top:2px;}
+  .hours li{display:flex;justify-content:space-between;gap:24px;padding-top:6px;padding-bottom:6px;border-bottom:1px dotted var(--line);font-size:.98rem;}
+  .hours li span:last-child{white-space:nowrap;color:var(--muted);}
+  .hours li.closed span:last-child{color:var(--gold);}
+  .map{border-radius:16px;overflow:hidden;min-height:330px;border:1px solid var(--line);}
+  .map iframe{width:100%;height:100%;min-height:330px;border:0;display:block;}
+
+  /* FOOTER */
+  footer{background:var(--ink);color:#e8e7df;padding-top:52px;padding-bottom:28px;text-align:center;}
+  footer .eyebrow{color:var(--gold-soft);font-size:2rem;}
+  footer .vc{font-size:.64rem;letter-spacing:.36em;text-transform:uppercase;color:var(--gold);margin-top:2px;}
+  footer .fsoc{display:flex;gap:16px;justify-content:center;margin:18px 0 20px;}
+  footer .fsoc a{width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;transition:.25s;}
+  footer .fsoc a:hover{border-color:var(--gold);background:rgba(184,154,94,.16);}
+  footer .fsoc svg{width:18px;height:18px;stroke:#e8e7df;fill:none;stroke-width:1.6;}
+  footer .credit{font-size:.8rem;color:#9b9c91;margin-top:12px;}
+  footer .credit a{color:var(--gold-soft);}
+
+  /* MODAL */
+  .modal{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:24px;}
+  .modal.open{display:flex;}
+  .modal-bg{position:absolute;inset:0;background:rgba(40,42,36,.55);backdrop-filter:blur(4px);}
+  .modal-card{position:relative;background:var(--panel);border-radius:18px;max-width:400px;width:100%;padding:40px 32px;text-align:center;}
+  .modal-card .eyebrow{font-size:2.2rem;}
+  .modal-card p{color:var(--muted);margin:4px 0 18px;font-size:.95rem;}
+  .modal-card .btn{width:100%;margin-top:10px;}
+  .modal-close{position:absolute;top:12px;right:16px;background:none;border:0;font-size:1.6rem;color:var(--muted);cursor:pointer;line-height:1;}
+
+  @media(max-width:860px){
+    .wrap{padding-left:20px;padding-right:20px;}
+    .sect{padding-top:64px;padding-bottom:64px;}
+    .sect-head{margin-bottom:42px;}
+    nav.links{position:fixed;inset:0;height:100dvh;width:100%;background:rgba(246,244,238,.98);backdrop-filter:blur(6px);display:flex;justify-content:center;align-items:center;opacity:0;visibility:hidden;transition:.3s;z-index:65;}
+    nav.links.open{opacity:1;visibility:visible;}
+    .menu-inner{display:flex;flex-direction:column;align-items:stretch;text-align:center;gap:16px;background:linear-gradient(160deg,var(--sage-deep),var(--ink));padding:30px 34px;border-radius:24px;box-shadow:0 30px 70px -30px rgba(52,54,47,.5);min-width:230px;}
+    nav.links a:not(.btn){color:#fff;font-family:var(--serif);font-size:1.6rem;text-transform:none;letter-spacing:.01em;}
+    nav.links .btn{font-size:.95rem;}
+    nav.links a.btn-primary{background:#fff;color:var(--sage-deep);}
+    .burger{display:block;}
+    header.menu-open .burger span{background:var(--ink);}
+    header.menu-open .burger span:nth-child(1){top:10px;transform:rotate(45deg);}
+    header.menu-open .burger span:nth-child(2){opacity:0;}
+    header.menu-open .burger span:nth-child(3){top:10px;transform:rotate(-45deg);}
+    .hero{min-height:90vh;}
+    .hero .sprig.tl{width:140px;left:-30px;}.hero .sprig.br{width:170px;right:-40px;}
+    .ml-row{grid-template-columns:1fr;gap:6px;text-align:center;}
+    .about .wrap{grid-template-columns:1fr;gap:28px;}
+    .contact-grid{grid-template-columns:1fr;gap:30px;}
+    .map,.map iframe{min-height:280px;}
+  }
+  .menu-inner{display:contents;}
+</style>
+</head>
+<body>
+
+<header id="header">
+  <div class="wrap bar">
+    <a href="#top" class="brand"><b>Aurora</b><small>centro estetico</small></a>
+    <nav class="links" id="navlinks">
+      <div class="menu-inner">
+        <a href="#servizi" onclick="closeMenu()">Servizi</a>
+        <a href="#chisiamo" onclick="closeMenu()">Chi siamo</a>
+        <a href="#contatti" onclick="closeMenu()">Contatti</a>
+        <a href="#" class="btn btn-primary" onclick="openModal();closeMenu();return false;">Prenota</a>
+      </div>
+    </nav>
+    <button class="burger" id="burger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <svg class="sprig tl" viewBox="0 0 100 200" fill="none" stroke="#8a9a7b" stroke-width="1.4"><path d="M50 200 V20"/><path d="M50 60 q-26-10-34-34 q26 2 34 22"/><path d="M50 90 q26-10 34-34 q-26 2-34 22"/><path d="M50 120 q-26-10-34-34 q26 2 34 22"/><path d="M50 40 q18-12 22-32 q-18 4-22 20"/></svg>
+  <svg class="sprig br" viewBox="0 0 100 200" fill="none" stroke="#8a9a7b" stroke-width="1.4"><path d="M50 200 V20"/><path d="M50 60 q-26-10-34-34 q26 2 34 22"/><path d="M50 90 q26-10 34-34 q-26 2-34 22"/><path d="M50 120 q-26-10-34-34 q26 2 34 22"/></svg>
+  <div class="hero-inner wrap">
+    <div class="eyebrow">il tuo momento di benessere</div>
+    <h1>Estetica Aurora</h1>
+    <div class="vc">centro estetico</div>
+    <p class="lead">Trattamenti viso e corpo su misura, in un ambiente curato dove rilassarti e ritrovare la tua luce.</p>
+    <div class="hero-cta">
+      <a href="#" class="btn btn-primary" onclick="openModal();return false;">Prenota ora</a>
+      <a href="#servizi" class="btn btn-out">I trattamenti</a>
+    </div>
+  </div>
+</section>
+
+<section class="sect" id="servizi">
+  <div class="wrap">
+    <div class="sect-head">
+      <span class="eyebrow">i trattamenti</span>
+      <h2>I nostri servizi</h2>
+      <p>Una cura completa per il tuo viso e il tuo corpo, con prodotti professionali e attenzione ai dettagli.</p>
+    </div>
+    <div class="menu-list">
+      <div class="ml-row"><div class="ml-cat">Viso</div><div class="ml-items"><span>Pulizia profonda</span> · trattamento idratante · anti-age · peeling rinnovatore</div></div>
+      <div class="ml-row"><div class="ml-cat">Corpo</div><div class="ml-items"><span>Massaggio rilassante</span> · trattamento drenante · scrub corpo · pressoterapia</div></div>
+      <div class="ml-row"><div class="ml-cat">Mani &amp; Piedi</div><div class="ml-items"><span>Manicure &amp; pedicure</span> · semipermanente · ricostruzione gel</div></div>
+      <div class="ml-row"><div class="ml-cat">Epilazione</div><div class="ml-items"><span>Ceretta viso e corpo</span> · epilazione progressiva</div></div>
+      <div class="ml-row"><div class="ml-cat">Sguardo</div><div class="ml-items"><span>Laminazione ciglia</span> · architettura sopracciglia · extension ciglia</div></div>
+    </div>
+    <p class="serv-note">Ogni trattamento è personalizzato dopo un breve consulto. Chiedici il percorso più adatto a te.</p>
+  </div>
+</section>
+
+<section class="sect about" id="chisiamo">
+  <svg class="sprig" viewBox="0 0 100 200" fill="none" stroke="#fff" stroke-width="1.4"><path d="M50 200 V20"/><path d="M50 60 q-26-10-34-34 q26 2 34 22"/><path d="M50 90 q26-10 34-34 q-26 2-34 22"/><path d="M50 120 q-26-10-34-34 q26 2 34 22"/><path d="M50 150 q26-10 34-34 q-26 2-34 22"/></svg>
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">chi siamo</span>
+      <h2>Un piccolo angolo di benessere</h2>
+      <p>Estetica Aurora nasce dalla passione per la cura della persona. Ti accogliamo in uno spazio tranquillo e curato, dove ogni trattamento è pensato su misura per te.</p>
+      <p>Ci piace ascoltare prima di proporre: pelle, esigenze e tempi sono diversi per ognuna, e meritano attenzione vera.</p>
+      <div class="stat">
+        <div><b>10+</b><span>anni di esperienza</span></div>
+        <div><b>100%</b><span>prodotti professionali</span></div>
+      </div>
+    </div>
+    <div>
+      <p style="font-family:var(--serif);font-style:italic;font-size:1.5rem;color:#fff;line-height:1.5;border-left:2px solid var(--gold-soft);padding-left:22px;">«Prendersi cura di sé non è un lusso, è un piccolo gesto d'amore quotidiano.»</p>
+    </div>
+  </div>
+</section>
+
+<section class="sect book" id="prenota">
+  <div class="wrap">
+    <div class="sect-head">
+      <span class="eyebrow">prenota</span>
+      <h2>Fissa il tuo appuntamento</h2>
+      <p>Scrivici su WhatsApp con due righe: ti rispondiamo con l'orario disponibile.</p>
+    </div>
+    <div class="book-card">
+      <label for="bn">Nome</label>
+      <input id="bn" type="text" placeholder="Il tuo nome" />
+      <label for="bs">Trattamento</label>
+      <input id="bs" type="text" placeholder="Es. pulizia viso, manicure…" />
+      <label for="bm">Quando preferisci</label>
+      <input id="bm" type="text" placeholder="Es. giovedì pomeriggio" />
+      <button class="btn btn-primary" onclick="sendWA()">Invia richiesta su WhatsApp</button>
+    </div>
+  </div>
+</section>
+
+<section class="sect" id="contatti">
+  <div class="wrap">
+    <div class="sect-head">
+      <span class="eyebrow">dove siamo</span>
+      <h2>Contatti &amp; orari</h2>
+    </div>
+    <div class="contact-grid">
+      <div>
+        <div class="info-row">
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+          <div><b>Indirizzo</b><span>Via Roma 12, 10064 Pinerolo (TO)</span></div>
+        </div>
+        <div class="info-row">
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l4 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg></div>
+          <div><b>Telefono &amp; WhatsApp</b><a href="tel:+393330000000">333 000 0000</a></div>
+        </div>
+        <div class="info-row">
+          <div class="ic"><svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="3.5"/><circle cx="17" cy="7" r="1"/></svg></div>
+          <div><b>Social</b><a href="#">@esteticaaurora</a> · <a href="#">Facebook</a></div>
+        </div>
+        <div class="info-row">
+          <div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+          <div><b>Orari</b>
+            <ul class="hours">
+              <li class="closed"><span>Lunedì</span><span>Chiuso</span></li>
+              <li><span>Martedì</span><span>9:00 – 19:00</span></li>
+              <li><span>Mercoledì</span><span>9:00 – 19:00</span></li>
+              <li><span>Giovedì</span><span>9:00 – 19:00</span></li>
+              <li><span>Venerdì</span><span>9:00 – 19:00</span></li>
+              <li><span>Sabato</span><span>9:00 – 17:00</span></li>
+              <li class="closed"><span>Domenica</span><span>Chiuso</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="map">
+          <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Pinerolo%20TO&output=embed" title="Mappa"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="eyebrow">Estetica Aurora</div>
+    <div class="vc">centro estetico · Pinerolo</div>
+    <div class="fsoc">
+      <a href="tel:+393330000000" aria-label="Telefono"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l4 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg></a>
+      <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="3.5"/><circle cx="17" cy="7" r="1"/></svg></a>
+      <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14 8h2V5h-2c-2 0-3 1-3 3v2H9v3h2v6h3v-6h2l.5-3H14V8.5c0-.3.2-.5.5-.5Z"/></svg></a>
+    </div>
+    <p class="credit">© 2026 Estetica Aurora · sito realizzato da <a href="https://mattiacaneparo.it" target="_blank" rel="noopener">Mattia Caneparo</a></p>
+  </div>
+</footer>
+
+<div class="modal" id="modal">
+  <div class="modal-bg" onclick="closeModal()"></div>
+  <div class="modal-card">
+    <button class="modal-close" onclick="closeModal()" aria-label="Chiudi">×</button>
+    <span class="eyebrow">Prenota</span>
+    <p>Chiamaci o scrivici su WhatsApp, fissiamo insieme il tuo appuntamento.</p>
+    <a class="btn btn-primary" href="tel:+393330000000">Chiama ora</a>
+    <a class="btn btn-out" href="https://wa.me/393330000000" target="_blank" rel="noopener">Scrivici su WhatsApp</a>
+  </div>
+</div>
+
+<script>
+  const header=document.getElementById('header');
+  function onScroll(){ header.classList.toggle('scrolled', window.scrollY>40); }
+  window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+  const nav=document.getElementById('navlinks');
+  function toggleMenu(){ const o=nav.classList.toggle('open'); header.classList.toggle('menu-open',o); document.body.style.overflow=o?'hidden':''; }
+  function closeMenu(){ nav.classList.remove('open'); header.classList.remove('menu-open'); document.body.style.overflow=''; }
+  const modal=document.getElementById('modal');
+  function openModal(){ modal.classList.add('open'); document.body.style.overflow='hidden'; }
+  function closeModal(){ modal.classList.remove('open'); document.body.style.overflow=''; }
+  document.addEventListener('keydown',e=>{ if(e.key==='Escape'){ closeModal(); closeMenu(); } });
+  function sendWA(){
+    const n=document.getElementById('bn').value.trim();
+    const s=document.getElementById('bs').value.trim();
+    const m=document.getElementById('bm').value.trim();
+    let t='Ciao! Vorrei prenotare un appuntamento.';
+    if(n) t+='\nNome: '+n;
+    if(s) t+='\nTrattamento: '+s;
+    if(m) t+='\nQuando: '+m;
+    window.open('https://wa.me/393330000000?text='+encodeURIComponent(t),'_blank');
+  }
+</script>
+</body>
+</html>
