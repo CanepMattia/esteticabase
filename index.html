@@ -396,7 +396,9 @@
     </div>
     <p class="credit">© 2026 Estetica Aurora · sito realizzato da <a href="https://mattiacaneparo.it" target="_blank" rel="noopener">Mattia Caneparo</a></p>
   </div>
-</footer>
+
+    <p style="margin-top:10px;font-size:.78rem;"><a href="privacy.html" style="color:inherit;opacity:.65;">Privacy &amp; Cookie Policy</a></p>
+  </footer>
 
 <div class="modal" id="modal">
   <div class="modal-bg" onclick="closeModal()"></div>
@@ -447,5 +449,34 @@
   .styleswitch .ss-btn.is-active{background:#f1f2f4;color:#1c1c1e;font-weight:500;}
   @media(max-width:560px){.styleswitch{bottom:12px;}.styleswitch .ss-label{display:none;}}
 </style>
+
+<!-- Cookie banner + Google Analytics (GA4) con consenso -->
+<div id="cookieBar" style="position:fixed;left:16px;right:16px;bottom:16px;z-index:200;max-width:540px;margin:0 auto;background:#1f2420;color:#f3f0e8;border-radius:14px;padding:18px 20px;box-shadow:0 20px 50px -20px rgba(0,0,0,.5);font-family:system-ui,-apple-system,sans-serif;display:none;">
+  <div style="font-size:.9rem;line-height:1.5;">Usiamo cookie tecnici e, con il tuo consenso, cookie di statistica (Google Analytics) per capire come viene usato il sito. <a href="privacy.html" style="color:#cdb588;text-decoration:underline;">Maggiori info</a>.</div>
+  <div style="display:flex;gap:10px;margin-top:12px;flex-wrap:wrap;">
+    <button onclick="cookieConsent(true)" style="flex:1;min-width:120px;cursor:pointer;border:0;border-radius:40px;padding:10px 16px;background:#b89a5e;color:#1f2420;font-weight:600;font-family:inherit;">Accetta</button>
+    <button onclick="cookieConsent(false)" style="flex:1;min-width:120px;cursor:pointer;border:1px solid rgba(243,240,232,.4);border-radius:40px;padding:10px 16px;background:transparent;color:#f3f0e8;font-family:inherit;">Rifiuta</button>
+  </div>
+</div>
+<script>
+  (function(){
+    var GA_ID='G-7ZRSS0J5H0';
+    function loadGA(){
+      if(window.__gaLoaded)return; window.__gaLoaded=true;
+      var s=document.createElement('script'); s.async=true;
+      s.src='https://www.googletagmanager.com/gtag/js?id='+GA_ID; document.head.appendChild(s);
+      window.dataLayer=window.dataLayer||[]; function gtag(){dataLayer.push(arguments);} window.gtag=gtag;
+      gtag('js',new Date()); gtag('config',GA_ID,{anonymize_ip:true});
+    }
+    window.cookieConsent=function(ok){
+      try{localStorage.setItem('cookie_consent',ok?'yes':'no');}catch(e){}
+      var b=document.getElementById('cookieBar'); if(b)b.style.display='none';
+      if(ok)loadGA();
+    };
+    var c=null; try{c=localStorage.getItem('cookie_consent');}catch(e){}
+    if(c==='yes')loadGA();
+    else if(c!=='no'){var b=document.getElementById('cookieBar'); if(b)b.style.display='block';}
+  })();
+</script>
 </body>
 </html>
